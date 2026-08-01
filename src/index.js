@@ -51,15 +51,15 @@
     function init() {
         if (!window.Docsify.dom.find('.' + className)) {
             var content = window.Docsify.dom.create('div', buttonHtml);
-            window.Docsify.dom.toggleClass(content, 'add', className);
+            content.classList.add(className);
             if (!config.hasNav) {
-                window.Docsify.dom.toggleClass(content, 'add', 'no-nav');
+                content.classList.add('no-nav');
             }
             if (!config.hasBadge) {
-                window.Docsify.dom.toggleClass(content, 'add', 'no-badge');
+                content.classList.add('no-badge');
             }
             if (config.fixed) {
-                window.Docsify.dom.toggleClass(content, 'add', 'fixed');
+                content.classList.add('fixed');
             }
             if (config.style) {
                 for (var key in config.style) {
@@ -85,18 +85,18 @@
             if (isDark) {
                 button.title = "Switch to light theme";
                 button.setAttribute('aria-checked', "true");
-                window.Docsify.dom.toggleClass(content, 'add', 'dark');
+                content.classList.add('dark');
             }
             else {
                 button.title = "Switch to dark theme";
                 button.setAttribute('aria-checked', "false");
-                window.Docsify.dom.toggleClass(content, 'remove', 'dark');
+                content.classList.remove('dark');
             }
             content.querySelector('svg.sun').style.display = isDark ? 'none' : 'block';
             content.querySelector('svg.moon').style.display = !isDark ? 'none' : 'block';
         }
 
-        window.Docsify.dom.toggleClass(document.documentElement, isDark ? 'add' : 'remove', 'dark');
+        document.documentElement.classList[isDark ? 'add' : 'remove']('hidden');
 
         var lightSheets = window.Docsify.dom.findAll('[rel="stylesheet"][title="light"]');
         var darkSheets = window.Docsify.dom.findAll('[rel="stylesheet"][title="dark"]');
