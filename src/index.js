@@ -96,7 +96,7 @@
             content.querySelector('svg.moon').style.display = !isDark ? 'none' : 'block';
         }
 
-        document.documentElement.classList[isDark ? 'add' : 'remove']('hidden');
+        document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
 
         var lightSheets = window.Docsify.dom.findAll('[rel="stylesheet"][title="light"]');
         var darkSheets = window.Docsify.dom.findAll('[rel="stylesheet"][title="dark"]');
